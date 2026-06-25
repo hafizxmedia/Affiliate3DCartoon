@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akses Sistem</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .login-box {
+            text-align: center;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #5563d6;
+        }
+
+        .error {
+            margin-top: 15px;
+            color: #e53935;
+            font-weight: 500;
+        }
+
+        .success-box {
+            display: none;
+        }
+
+        .system-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #28a745;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .system-button:hover {
+            background: #218838;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        hr {
+            margin: 35px 0;
+            border: none;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 15px;
+            background: #f5f5f5;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div id="loginBox" class="login-box">
+
+        <h1>🔐 Akses Sistem</h1>
+
+        <p>
+            Sila masukkan password untuk mendapatkan akses kepada sistem.
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Masukkan password"
+        >
+
+        <button onclick="checkPassword()">
+            Masuk
+        </button>
+
+        <div id="errorMessage" class="error"></div>
+
+    </div>
+
+    <!-- CONTENT SELEPAS LOGIN -->
+    <div id="successBox" class="success-box">
+
+        <div class="center">
+            <h1>✅ Akses Berjaya</h1>
+
+            <p>
+                Klik butang di bawah untuk membuka sistem.
+            </p>
+
+            <a
+                href="https://gemini.google.com/gem/1TNnJ1L8SqOhB2_rUIu2vx7yuexNDti3U"
+                target="_blank"
+                class="system-button"
+            >
+                Akses Sistem
+            </a>
+        </div>
+
+        <hr>
+
+        <!-- VIDEO TUTORIAL -->
+        <section>
+
+            <h2>📹 Video Tutorial Penggunaan</h2>
+
+            <p>
+                Tonton video di bawah untuk memahami cara menggunakan sistem dengan lebih berkesan.
+            </p>
+
+            <div class="info-box">
+                Gantikan <strong>VIDEO_ID_ANDA</strong> dengan ID video YouTube sebenar.
+            </div>
+
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/VIDEO_ID_ANDA"
+                    title="Tutorial Penggunaan Sistem"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<script>
+    function checkPassword() {
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (password === '123456') {
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('successBox').style.display = 'block';
+        } else {
+            errorMessage.textContent = '❌ Password tidak sah. Sila cuba lagi.';
+        }
+    }
+
+    document
+        .getElementById('password')
+        .addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+</script>
+
+</body>
+</html>
