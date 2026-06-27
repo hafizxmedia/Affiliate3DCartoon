@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Access - Sistem Premium</title>
+    <title>Elite Access - TikTok Affiliate 3D Cartoon AI System</title>
     
     <!-- Font Awesome untuk ikon premium -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -277,9 +277,11 @@
             overflow-y: auto;
         }
 
+        /* Success Header dengan Info Tambahan */
         .success-header {
             text-align: center;
             margin-bottom: 40px;
+            position: relative;
         }
 
         .success-badge {
@@ -296,6 +298,110 @@
             margin-bottom: 20px;
         }
 
+        /* Success Image */
+        .success-image {
+            margin: 25px auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .success-image img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .success-image img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Support Section Premium */
+        .support-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), transparent, var(--primary-gold));
+        }
+
+        .support-icon {
+            font-size: 36px;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .support-section h3 {
+            color: var(--dark-navy);
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .support-section p {
+            color: var(--premium-gray);
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--primary-gold), #B8941F);
+            color: var(--dark-navy);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #B8941F, var(--primary-gold));
+        }
+
+        /* System Access tanpa Image */
         .system-access {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -431,6 +537,23 @@
             .system-access {
                 grid-template-columns: 1fr;
             }
+
+            .success-image img {
+                max-width: 280px;
+            }
+
+            .support-section {
+                padding: 25px;
+            }
+
+            .support-section h3 {
+                font-size: 18px;
+            }
+
+            .contact-link {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
         }
 
         /* Loading animation */
@@ -464,12 +587,20 @@
         
         <div class="header">
             <div class="price-badge">
-                <i class="fas fa-crown"></i> ELITE ACCESS - RM99
+                <i class="fas fa-crown"></i> ELITE ACCESS - RM69
             </div>
             <h1>🔐 Akses Premium</h1>
             <p class="subtitle">Sistem eksklusif untuk pengguna berbayar sahaja</p>
-            <p class="subtitle"> support : haafizxmedia@gmail.com </p>
         </div>
+        <p style="color: var(--premium-gray); font-size: 16px; margin-bottom: 15px;">
+                    Jika ada sebarang masalah atau pertanyaan berkaitan sistem, hubungi:
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:haafizxmedia@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        haafizxmedia@gmail.com
+                    </a>
+                </div>
 
         <div class="security-badge">
             <i class="fas fa-shield-alt"></i>
@@ -507,15 +638,36 @@
                 <i class="fas fa-check-circle"></i>
                 Akses Berjaya!
             </div>
-            <h1>🎉 Selamat Datang ke Sistem TikTok 3D Cartoon AI </h1>
-            <p style="color: var(--premium-gray); font-size: 18px;">
-                Anda kini mempunyai akses penuh ke semua sistem premium kami.
-                
+            
+            <!-- Success Image -->
+            <div class="success-image">
+                <img src="product-image01.png" alt="system">
+            </div>
+            
+            <h1>🎉 Selamat Datang ke TikTok Affiliate 3D Cartoon AI System</h1>
+            <p style="color: var(--premium-gray); font-size: 18px; margin-bottom: 30px;">
+                Anda kini mempunyai akses penuh ke semua sistem premium kami
             </p>
-            <p class="subtitle"> support : haafizxmedia@gmail.com </p>
+            
+            <!-- Bahagian Support Premium -->
+            <div class="support-section">
+                <div class="support-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 style="color: var(--dark-navy); font-size: 20px; margin-bottom: 10px;">🛟 Sokongan Premium 24/7</h3>
+                <p style="color: var(--premium-gray); font-size: 16px; margin-bottom: 15px;">
+                    Jika ada sebarang masalah atau pertanyaan berkaitan sistem, jangan ragu untuk menghubungi kami:
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:haafizxmedia@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        haafizxmedia@gmail.com
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <!-- System Access Cards -->
+        <!-- System Access Cards tanpa Image -->
         <div class="system-access">
             <div class="access-card">
                 <div class="access-icon">
