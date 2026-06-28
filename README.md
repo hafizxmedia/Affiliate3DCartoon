@@ -1,2 +1,2 @@
 # Affiliate3DCartoon
-TikTok Affiliate 3D Cartoon AI
+Access Member TikTok Affiliate 3D Cartoon AI 
