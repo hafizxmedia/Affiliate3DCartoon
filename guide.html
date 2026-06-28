@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Penggunaan — TikTok Affiliate 3D Cartoon Creator</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f4f0;
+    color: #1a1a18;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,80,120,0.12);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(80,180,255,0.10);
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a0c4ff;
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .cover h1 span {
+    color: #ff6b9d;
+  }
+  .cover-sub {
+    font-size: 14px;
+    color: #9bb8d4;
+    margin-top: 8px;
+  }
+  .cover-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .cover-chip {
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    color: #c8dff5;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-top: 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8e6e0;
+  }
+  .section-num {
+    width: 34px; height: 34px;
+    background: #0f3460;
+    color: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f3460;
+  }
+
+  /* INFO BOX */
+  .info-box {
+    background: #eef4ff;
+    border-left: 4px solid #3a7bd5;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #1c3a6e;
+  }
+  .warn-box {
+    background: #fff8ec;
+    border-left: 4px solid #f5a623;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #7a4800;
+  }
+  .tip-box {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #14532d;
+  }
+
+  /* STEPS */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .step {
+    display: flex;
+    gap: 16px;
+    position: relative;
+  }
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36px;
+    flex-shrink: 0;
+  }
+  .step-dot {
+    width: 36px; height: 36px;
+    background: white;
+    border: 3px solid #0f3460;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f3460;
+    flex-shrink: 0;
+    z-index: 1;
+    position: relative;
+  }
+  .step-line {
+    width: 2px;
+    background: #d0d8e8;
+    flex: 1;
+    min-height: 24px;
+  }
+  .step-body {
+    padding: 4px 0 28px;
+    flex: 1;
+  }
+  .step-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1a1a18;
+    margin-bottom: 5px;
+  }
+  .step-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.65;
+  }
+  .step:last-child .step-line {
+    display: none;
+  }
+  .step:last-child .step-body {
+    padding-bottom: 0;
+  }
+
+  /* OUTPUT CARDS */
+  .output-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .output-card {
+    background: white;
+    border: 1px solid #e0ddd5;
+    border-radius: 10px;
+    padding: 16px 14px;
+  }
+  .output-card .icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .output-card .label {
+    font-weight: 700;
+    font-size: 13px;
+    color: #0f3460;
+    margin-bottom: 4px;
+  }
+  .output-card .desc {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  /* PHOTO TIPS */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .photo-card {
+    border-radius: 10px;
+    padding: 14px 15px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .photo-card.good {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+  }
+  .photo-card.bad {
+    background: #fff1f2;
+    border: 1px solid #fca5a5;
+  }
+  .photo-card .ph-label {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .photo-card.good .ph-label { color: #15803d; }
+  .photo-card.bad .ph-label { color: #b91c1c; }
+  .photo-card ul {
+    padding-left: 16px;
+    color: #444;
+  }
+  .photo-card li { margin-bottom: 3px; }
+
+  /* FAQ */
+  .faq-item {
+    background: white;
+    border: 1px solid #e5e2da;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .faq-q {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f3460;
+    margin-bottom: 7px;
+  }
+  .faq-a {
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.65;
+  }
+
+  /* PLATFORM CHIPS */
+  .platform-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .pchip {
+    background: #eef0f8;
+    border-radius: 6px;
+    padding: 6px 13px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2d4a8a;
+    border: 1px solid #c8d2ea;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #1a1a2e;
+    color: #7a8faa;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    margin-top: 50px;
+  }
+  .footer strong { color: #a0c4ff; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: #e5e2da;
+    margin: 10px 0 0;
+  }
+
+  p { margin-bottom: 10px; }
+  p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 520px) {
+    .cover h1 { font-size: 22px; }
+    .cover { padding: 44px 20px 38px; }
+    .photo-grid { grid-template-columns: 1fr; }
+    .content { padding: 0 16px 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Manual Penggunaan</div>
+  <h1>TikTok Affiliate<br><span>3D Cartoon AI System</span></h1>
+  <p class="cover-sub">Powered by Google Gemini AI · Versi 1.0</p>
+  <div class="cover-icons">
+    <div class="cover-chip">🎬 Auto Content Strategy</div>
+    <div class="cover-chip">🤖 AI Prompt Generator</div>
+    <div class="cover-chip">🇲🇾 Untuk Market Malaysia</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Apa Itu Sistem Ini?</div>
+    </div>
+    <p>Sistem ini adalah sebuah <strong>AI Gem</strong> yang dibina dalam Google Gemini. Apabila anda muat naik gambar produk, ia akan secara automatik menghasilkan:</p>
+
+    <div class="output-grid" style="margin-top:14px;">
+      <div class="output-card">
+        <div class="icon">🎭</div>
+        <div class="label">Karakter 3D Kartun</div>
+        <div class="desc">Produk anda ditukar kepada watak kartun yang comel dan menarik</div>
+      </div>
+      <div class="output-card">
+        <div class="icon">🖼️</div>
+        <div class="label">Image Prompt</div>
+        <div class="desc">Prompt untuk jana gambar karakter 3D dalam Google Flow</div>
+      </div>
+      <div class="output-card">
+        <div class="icon">🎥</div>
+        <div class="label">Video Prompt</div>
+        <div class="desc">Prompt untuk jana video animasi dalam Google Flow, sudah termasuk voiceover</div>
+      </div>
+      <div class="output-card">
+        <div class="icon">📋</div>
+        <div class="label">Content Strategy</div>
+        <div class="desc">Voiceover, hook viral, caption & hashtag siap untuk TikTok</div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:18px;">
+      💡 <strong>Ringkasnya:</strong> Upload gambar → Sistem jana semua prompt & strategi → Anda guna prompt tu dalam AI video tools untuk buat video TikTok.
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">Cara Akses Sistem Gem</div>
+    </div>
+    <p>Akses Sistem Gem ini mudah. Anda tidak perlu cari dalam Gemini — gunakan link yang disediakan.</p>
+
+    <div class="steps" style="margin-top:18px;">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Klik link Gem yang diberikan</div>
+          <div class="step-desc">Klik sahaja link tersebut — ia akan buka Gem secara automatik dalam Google Gemini.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Log masuk dengan akaun Google</div>
+          <div class="step-desc">Jika belum log masuk, anda akan diminta sign in dengan akaun Google. Guna akaun Google yang biasa anda gunakan.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Gem sudah sedia — mula guna</div>
+          <div class="step-desc">Sesi chat Gem akan terbuka. Anda boleh terus upload gambar produk dan mula jana prompt. Tiada persediaan lain yang diperlukan.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:4px;">
+      💡 <strong>Tip:</strong> Bookmark link Gem supaya senang akses pada masa akan datang tanpa perlu cari semula.
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">Cara Muat Naik Gambar Produk</div>
+    </div>
+
+    <div class="steps" style="margin-top:18px;">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Klik ikon lampiran (📎) dalam kotak chat</div>
+          <div class="step-desc">Cari butang upload gambar di bahagian bawah kotak input. Boleh juga drag & drop gambar terus ke dalam chat.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Pilih gambar produk anda</div>
+          <div class="step-desc">Pilih fail gambar dari peranti anda, atau boleh juga gunakan screenshot produk dari Shopee/Tiktok. Format yang disokong: JPG, PNG, WEBP.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Hantar tanpa perlu taip apa-apa</div>
+          <div class="step-desc">Anda boleh terus tekan hantar selepas upload gambar. Sistem akan faham sendiri apa yang perlu dilakukan. Atau taip arahan tambahan jika anda mahu fokus tertentu.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Tunggu output dijana</div>
+          <div class="step-desc">Sistem akan menganalisis produk dan menghasilkan semua prompt dalam masa 30–60 saat. Jangan interrupt semasa sedang generate.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      ⚠️ <strong>Penting:</strong> Jangan upload banyak gambar berbeza produk dalam satu satu masa.
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">Tips Gambar Produk Yang Baik</div>
+    </div>
+    <p>Kualiti gambar mempengaruhi kualiti karakter kartun yang dijana. Guna gambar yang sesuai:</p>
+
+    <div class="photo-grid">
+      <div class="photo-card good">
+        <div class="ph-label">✅ Gambar Yang Baik</div>
+        <ul>
+          <li>Latar belakang putih atau terang</li>
+          <li>Produk kelihatan jelas dan tajam</li>
+          <li>Gambar official dari shopee/lazada OK</li>
+          <li>Warna produk nampak betul</li>
+          <li>Produk penuh dalam frame</li>
+          <li>Resolusi sekurang-kurangnya 400×400px</li>
+        </ul>
+      </div>
+      <div class="photo-card bad">
+        <div class="ph-label">❌ Elakkan</div>
+        <ul>
+          <li>Gambar gelap atau blur</li>
+          <li>Latar belakang terlalu sibuk</li>
+          <li>Produk separuh terkeluar frame</li>
+          <li>Terlalu banyak produk dalam satu gambar</li>
+          <li>Screenshot resolusi rendah</li>
+          <li>Gambar dari sudut yang pelik</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">Output Yang Akan Keluar</div>
+    </div>
+    <p>Sistem akan hasilkan output yang lengkap dalam satu respons panjang. Ini yang anda akan dapat:</p>
+
+    <div class="steps" style="margin-top:16px;">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">🔍</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Analisis Produk</div>
+          <div class="step-desc">Nama produk, kategori, target market dan USP utama yang dikenal pasti oleh AI.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">🎭</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Karakter 3D + Master Prompt</div>
+          <div class="step-desc">Nama, personaliti, warna dan ekspresi karakter kartun produk anda. Master prompt ini simpan untuk guna semula dalam semua scene.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">🎬</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Scene 1 hingga 5 (lengkap)</div>
+          <div class="step-desc">Setiap scene ada: <strong>Voiceover Bahasa Melayu</strong> · <strong>Image Prompt</strong> (untuk jana gambar) · <strong>Video Prompt</strong> (untuk jana video). Tiap scene 6 saat.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">📣</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">5 Viral Hook + CTA</div>
+          <div class="step-desc">Lima pilihan hook pembukaan yang boleh digunakan untuk mulakan video. Juga 5 CTA lembut untuk tutup video.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">📲</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Caption & Hashtag TikTok</div>
+          <div class="step-desc">3 pilihan caption dan hashtag yang relevan dan doptimumkan untuk TikTok Malaysia.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">Cara Guna Prompt Untuk Jana Video</div>
+    </div>
+    <p>Setelah dapat output dari Gem, ikut aliran kerja ini menggunakan <strong>Google Flow</strong>:</p>
+
+    <div class="steps" style="margin-top:16px;">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Jana Gambar Karakter Dalam Google Flow</div>
+          <div class="step-desc">Buka <strong>Google Flow</strong> → Pilih mod jana gambar → Copy <strong>Image Prompt Scene 1</strong> → Paste dan jana gambar karakter 3D kartun produk anda.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Jana Video Menggunakan Video Prompt</div>
+          <div class="step-desc">Upload gambar karakter yang baru dijana → Copy <strong>Video Prompt Scene 1</strong> (yang sudah mengandungi voiceover) → Paste dalam Google Flow → Jana video 6 saat.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Semak Voiceover</div>
+          <div class="step-desc">Google Flow biasanya boleh jana voiceover terus dari teks yang ada dalam Video Prompt. Semak video yang dijana — jika voiceover sudah ada, teruskan. Jika tidak, baru guna AI Text-to-Speech seperti CapCut TTS untuk tambah suara secara berasingan.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Ulang Untuk Setiap Scene</div>
+          <div class="step-desc">Buat sama untuk Scene 2, 3 dan seterusnya. Untuk konsistensi karakter, simpan gambar scene 1 sebagai rujukan dan gunakan dalam setiap scene seterusnya.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Edit & Gabungkan Video</div>
+          <div class="step-desc">Gabungkan semua scene dalam <strong>CapCut</strong>. Tambah subtitle, musik latar dan CTA. Muat naik ke TikTok.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      🛠️ <strong>Platform yang digunakan:</strong>
+      <div class="platform-chips" style="margin-top:10px;">
+        <span class="pchip">Google Flow</span>
+        <span class="pchip">CapCut</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">Tips Penjimatan Kredit AI</div>
+    </div>
+
+    <div class="tip-box">
+      💰 Sistem ini direka untuk <strong>guna kredit AI sesedikit mungkin</strong> sambil hasilkan video yang berkesan. Ikut tips ini untuk jimat lebih lagi:
+    </div>
+
+    <div class="steps" style="margin-top:16px;">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">💡</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Guna Gambar Terbaik Sekali Jana</div>
+          <div class="step-desc">Jika gambar karakter pertama sudah cantik, guna gambar itu sebagai reference untuk semua scene seterusnya. Ini jimat banyak kredit.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">💡</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Pilih Scene Yang Perlu Sahaja</div>
+          <div class="step-desc">Sistem akan tentukan 3–5 scene bergantung produk. Jangan rasa wajib jana semua 5 scene jika 3 scene sudah cukup untuk menyampaikan mesej.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-dot" style="font-size:11px;">💡</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Recycle Background Yang Sama</div>
+          <div class="step-desc">Guna latar belakang yang sama untuk beberapa scene. Hanya tukar posisi dan ekspresi karakter untuk jimat kredit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div class="section-title">Soalan Lazim (FAQ)</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ Berapa lama masa yang perlu untuk jana satu set video penuh?</div>
+      <div class="faq-a">Bergantung kepada kemahiran anda dengan AI tools. Biasanya 30–90 minit untuk jana semua scene dan edit video siap untuk upload TikTok.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ Boleh saya guna untuk pelbagai jenis produk?</div>
+      <div class="faq-a">Ya. Sistem ini boleh handle hampir semua jenis produk TikTok Affiliate — skincare, makanan, aksesori, peralatan rumah, pakaian dan banyak lagi.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ Apa yang perlu saya buat jika karakter yang dijana tidak nampak macam gambar produk saya?</div>
+      <div class="faq-a">Cuba muat naik gambar produk yang lebih jelas atau dari sudut yang berbeza. Anda juga boleh tambah arahan tambahan dalam chat seperti "fokus pada warna merah produk" atau "produk ini berbentuk botol bulat".</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ Boleh saya minta sistem jana semula jika tidak puas hati?</div>
+      <div class="faq-a">Ya. Taip "jana semula" atau "cuba lagi dengan format berbeza" dalam chat yang sama. Anda juga boleh minta perubahan spesifik seperti "tukar kepada format Before & After".</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ Adakah voiceover yang dijana boleh terus guna?</div>
+      <div class="faq-a">Ya, boleh cuba terus. Voiceover sudah dimasukkan dalam Video Prompt, dan Google Flow biasanya boleh jana suara terus dari teks tersebut. Semak video yang keluar — jika ada suara, dah boleh guna. Jika tiada, baru guna CapCut TTS atau mana-mana Text-to-Speech untuk tambah suara secara berasingan.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ Saya boleh guna untuk berapa banyak produk?</div>
+      <div class="faq-a">Tiada had. Setiap kali anda muat naik gambar produk baharu dalam Gem, sistem akan jana set prompt baharu untuk produk tersebut.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>TikTok Affiliate 3D Cartoon AI System</strong> · Powered by Google Gemini AI<br>
+  <span style="font-size:12px; margin-top:6px; display:block;">Untuk sokongan atau pertanyaan, hubungi support haafizxmedia@gmail.com .</span>
+</div>
+
+</body>
+</html>
